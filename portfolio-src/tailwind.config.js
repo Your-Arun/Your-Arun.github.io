@@ -1,31 +1,28 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
-        bg: "#06070f",
-        card: "#0d1020",
-        muted: "#6b7698",
-        "text-strong": "#e8eaf6",
-        border: "rgba(99, 102, 241, 0.15)",
-        accent: "#6366f1",
-        "accent-hover": "#818cf8",
-        secondary: "#f59e0b",
-        "cyan-accent": "#06b6d4",
-        "deep": "#030408",
+        ivory:          "#FAF9F6",
+        ink:            "#1A1A1A",
+        ink2:           "#3D3D3D",
+        accent:         "#2D6A4F",
+        "accent-hover": "#1B4332",
+        muted:          "#767676",
+        divider:        "#E2DDD6",
+        subtle:         "#F0EDE7",
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+        sans:    ["Inter",         "system-ui", "sans-serif"],
+        heading: ["Space Grotesk", "system-ui", "sans-serif"],
       },
-      perspective: {
-        '500': '500px',
-        '1000': '1000px',
-        '1500': '1500px',
+      maxWidth: {
+        content: "1000px",
+      },
+      letterSpacing: {
+        tighter: "-0.04em",
+        snug:    "-0.02em",
       },
     },
   },
