@@ -2,85 +2,164 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-  
+  html { scroll-behavior: smooth; }
+
   body {
-    background-color: #05080c;
-    background-image: 
-      linear-gradient(rgba(16, 185, 129, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(16, 185, 129, 0.04) 1px, transparent 1px);
-    background-size: 40px 40px;
+    background-color: #06070f;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 20% -10%, rgba(99,102,241,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 100%, rgba(245,158,11,0.10) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 50% at 50% 50%, rgba(6,182,212,0.05) 0%, transparent 70%);
     background-attachment: fixed;
     overflow-x: hidden;
   }
 
-  /* Custom Scrollbar */
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
-  ::-webkit-scrollbar-track {
-    background: #05080c;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #111827;
-    border: 2px solid #05080c;
-    border-radius: 9999px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #10b981;
-  }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #06070f; }
+  ::-webkit-scrollbar-thumb { background: #1e1f3a; border-radius: 9999px; border: 2px solid #06070f; }
+  ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
 }
 
-/* Animations for floating background blobs */
-@keyframes float-blob {
-  0%, 100% {
-    transform: translate(0px, 0px) scale(1);
-  }
-  33% {
-    transform: translate(30px, -50px) scale(1.15);
-  }
-  66% {
-    transform: translate(-40px, 20px) scale(0.9);
-  }
+/* ── Blob animation ───────────────────── */
+@keyframes blob {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33%      { transform: translate(40px,-60px) scale(1.12); }
+  66%      { transform: translate(-30px,25px) scale(0.92); }
+}
+.animate-blob { animation: blob 22s infinite ease-in-out; }
+.delay-2 { animation-delay: 2s; }
+.delay-4 { animation-delay: 4s; }
+.delay-6 { animation-delay: 6s; }
+
+/* ── Floating island animation ────────── */
+@keyframes float {
+  0%,100% { transform: translateY(0px) rotate3d(1,1,0,0deg); }
+  50%      { transform: translateY(-12px) rotate3d(1,1,0,1deg); }
+}
+.float-anim { animation: float 6s ease-in-out infinite; }
+.float-anim-slow { animation: float 9s ease-in-out infinite; }
+
+/* ── Shimmer sweep ────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.shimmer-text {
+  background: linear-gradient(90deg, #818cf8 0%, #f59e0b 30%, #06b6d4 60%, #818cf8 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
 }
 
-.animate-blob {
-  animation: float-blob 20s infinite ease-in-out;
+/* ── Stars background ─────────────────── */
+@keyframes twinkle {
+  0%,100% { opacity: 0.2; } 50% { opacity: 1; }
+}
+.star {
+  position: fixed;
+  border-radius: 50%;
+  background: white;
+  animation: twinkle var(--dur, 3s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+  pointer-events: none;
+  z-index: 0;
 }
 
-.animation-delay-2000 {
-  animation-delay: 2s;
-}
-
-.animation-delay-4000 {
-  animation-delay: 4s;
-}
-
+/* ── Navigation glass ─────────────────── */
 .glass-nav {
-  background: rgba(5, 8, 12, 0.8);
+  background: rgba(6,7,15,0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(99,102,241,0.15);
+  box-shadow: 0 1px 0 rgba(99,102,241,0.1), 0 4px 30px rgba(0,0,0,0.4);
+}
+
+/* ── 3D Card base ─────────────────────── */
+.card-3d-wrapper {
+  perspective: 1000px;
+}
+.card-3d {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.card-3d.flipped { transform: rotateY(180deg); }
+.card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 20px;
+}
+.card-back { transform: rotateY(180deg); }
+
+/* ── Glass card ───────────────────────── */
+.glass-card {
+  background: linear-gradient(135deg,
+    rgba(255,255,255,0.06) 0%,
+    rgba(255,255,255,0.02) 100%);
+  border: 1px solid rgba(99,102,241,0.2);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(16, 185, 129, 0.15);
-}
-
-.glass-card {
-  background: rgba(10, 16, 23, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(16, 185, 129, 0.15);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.04) inset,
+    0 20px 40px -10px rgba(0,0,0,0.6),
+    0 0 80px -20px rgba(99,102,241,0.08);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
 .glass-card:hover {
-  border-color: rgba(16, 185, 129, 0.5);
-  box-shadow: 
-    0 20px 40px -15px rgba(0, 0, 0, 0.9),
-    0 0 25px -5px rgba(16, 185, 129, 0.25);
-  transform: translateY(-4px);
+  border-color: rgba(99,102,241,0.45);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.06) inset,
+    0 30px 60px -10px rgba(0,0,0,0.7),
+    0 0 60px -10px rgba(99,102,241,0.25);
 }
 
+/* ── Neon glow button ─────────────────── */
+.btn-neon {
+  position: relative;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  box-shadow: 0 0 20px rgba(99,102,241,0.4), 0 0 60px rgba(99,102,241,0.15);
+  transition: all 0.3s ease;
+}
+.btn-neon:hover {
+  box-shadow: 0 0 30px rgba(99,102,241,0.7), 0 0 80px rgba(99,102,241,0.3);
+  transform: translateY(-2px);
+}
 
+/* ── Glow ring ────────────────────────── */
+.glow-ring {
+  box-shadow:
+    0 0 0 1px rgba(99,102,241,0.3),
+    0 0 20px rgba(99,102,241,0.2),
+    0 0 60px rgba(99,102,241,0.1);
+}
+
+/* ── Section separator ────────────────── */
+.section-line {
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(99,102,241,0.5) 30%,
+    rgba(245,158,11,0.5) 70%,
+    transparent 100%);
+}
+
+/* ── Skill pill ───────────────────────── */
+.skill-pill {
+  background: rgba(99,102,241,0.06);
+  border: 1px solid rgba(99,102,241,0.15);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.skill-pill:hover {
+  background: rgba(99,102,241,0.15);
+  border-color: rgba(99,102,241,0.5);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 25px rgba(99,102,241,0.2);
+}
