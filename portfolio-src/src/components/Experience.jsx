@@ -2,26 +2,38 @@ import FadeIn from './FadeIn';
 
 const EXPERIENCES = [
   {
-    role:     'Full Stack Developer',
-    company:  'Tech Company',
-    period:   '2024 — Present',
-    location: 'Jodhpur, Rajasthan (Remote)',
+    role:     'MERN Stack Developer',
+    company:  'Sanghi Brothers, Jodhpur',
+    period:   'Dec 2024 — Present',
+    location: 'System & Automation Technician role · MERN Stack Development track',
     bullets: [
-      'Led end-to-end development of an Asset Management System and Ticket Support Platform using Django & Django REST Framework — from architecture planning through client deployment and post-launch support.',
-      'Designed RESTful API contracts, integrated role-based access control, and improved query performance by optimising ORM-level database interactions.',
+      'Designed & built BranchFlow Pro, a 5-module logistics platform (Staff Web, Admin Panel, Mobile App, API) covering real-time dispatch tracking, role-based access control & Android APK via EAS Build — now used for day-to-day branch operations.',
+      'Built Feedback & Complaint System: a 4-part architecture (QR intake, Socket.io live admin dashboard, backend, database) replacing manual complaint tracking, deployed on Render; also developed company website end-to-end (MERN, Tailwind) — sanghibros.vercel.app',
+      'Built Electricity Billing App (React Native, JWT auth): automated PDF bill generation and OTP-based recovery, with a configurable billing engine handling multiplier & fixed-charge logic for tenant accounts.',
     ],
-    tags: ['Python', 'Django', 'DRF', 'PostgreSQL', 'React'],
+    tags: ['MongoDB', 'Express', 'React', 'Node.js', 'React Native', 'Socket.io', 'Expo', 'EAS Build'],
   },
   {
-    role:     'Software Developer',
-    company:  'Frappe / ERPNext Partner',
-    period:   '2023 — 2024',
-    location: 'Remote',
+    role:     'Freelance MERN Stack Developer',
+    company:  'Self-employed',
+    period:   'Jul 2024 — Nov 2024',
+    location: 'MERN Stack & UI Development',
     bullets: [
-      'Delivered a Bangladesh-based CRM system for a legal consultancy firm, handling client onboarding workflows, document management, and billing — built on the Frappe Framework.',
-      "Developed an educational teaching platform with course management, session scheduling, and student progress tracking using Frappe's desk and portal layers.",
+      'Built Urban Estate (MERN + Firebase) — Live real estate platform featuring property filtering, real-time database, and inquiry features.',
+      'Developed Hotstar Clone (React, TMDB API) — Live streaming user interface with TMDB API integration, categories browsing, and fully responsive layout.',
     ],
-    tags: ['Frappe Framework', 'Python', 'MariaDB', 'JavaScript'],
+    tags: ['React.js', 'Firebase', 'Tailwind CSS', 'TMDB API', 'JavaScript'],
+  },
+  {
+    role:     'Web Designer Intern',
+    company:  'DETECHIE DIGITAL ACADEMY, Delhi',
+    period:   'Jan 2023 — Jul 2023',
+    location: 'Frontend Development & Web Design',
+    bullets: [
+      'Developed 15+ responsive web pages using modern HTML5, CSS3, and JavaScript standards.',
+      'Improved UX and optimized page loading performance via debugging and layouts cross-browser testing.',
+    ],
+    tags: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design', 'Debugging'],
   },
 ];
 

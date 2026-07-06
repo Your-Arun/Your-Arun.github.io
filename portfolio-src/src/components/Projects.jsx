@@ -3,42 +3,49 @@ import FadeIn from './FadeIn';
 
 const PROJECTS = [
   {
-    name:        'IoT Home Automation',
-    year:        '2024',
-    stack:       ['Django', 'DRF', 'Python', 'MQTT', 'Google Assistant API'],
+    name:        'BranchFlow Pro — Logistics & Branch Management',
+    year:        '2026',
+    stack:       ['MERN Stack', 'React Native', 'Expo', 'Socket.io', 'JWT'],
     description:
-      'A voice-controlled home automation system integrating Google Assistant with physical IoT devices — motion sensors, smart switches, and remote appliance control via a Django & Django REST Framework backend. Enables real-time device access from anywhere with secure API authentication.',
+      'A 5-module logistics platform (Staff Web, Admin Panel, Mobile Apps, API) developed for Sanghi Brothers. Enables real-time dispatch tracking, automated email alerts, and push notifications with role-based access controls (Admin/Staff). Mobile apps generated via Expo & EAS Build, with backend deployed on Render and MongoDB Atlas.',
     github:      'https://github.com/Your-Arun',
     live:        null,
   },
   {
-    name:        'Truckky',
-    year:        '2024',
-    stack:       ['MongoDB', 'Express.js', 'React.js', 'Node.js'],
+    name:        'Electricity Billing & Tenant Management App',
+    year:        '2026',
+    stack:       ['React Native', 'Expo', 'Node.js', 'MongoDB', 'JWT'],
     description:
-      'A MERN stack discovery platform for food truck owners to publish menus, real-time locations, and events — and for users to find and follow their favourite trucks. Features real-time location updates, user authentication, and an owner dashboard for post management.',
+      'A role-based mobile application designed for Sanghi Brothers to manage tenant electricity meters. Streamlines meter readings recording, automated PDF bill generation, and OTP-based account recovery. Powered by a flexible billing engine handling configurable multipliers and fixed charges.',
     github:      'https://github.com/Your-Arun',
     live:        null,
   },
   {
-    name:        'Legal CRM (Bangladesh)',
-    year:        '2023',
-    stack:       ['Frappe Framework', 'Python', 'MariaDB', 'JavaScript'],
+    name:        'Feedback & Complaint Management System',
+    year:        '2026',
+    stack:       ['React', 'Vite', 'Node.js', 'Socket.io', 'MongoDB'],
     description:
-      'An enterprise CRM built on Frappe for a Bangladesh-based legal consultancy, covering client onboarding, case document management, billing workflows, and automated email notifications. Delivered with custom Frappe doctypes, workflows, and client portal access.',
-    github:      null,
-    live:        null,
-    note:        'Client project — code is private',
+      'A QR-code based real-time feedback portal and admin dashboard replacing manual complaint tracking workflows. Features instant Socket.io live updates for admin panels, built as a 4-part system and deployed on Render.',
+    github:      'https://github.com/Your-Arun',
+    live:        'https://sanghibros.vercel.app',
   },
   {
-    name:        'Educational Teaching Platform',
-    year:        '2023',
-    stack:       ['Frappe Framework', 'Python', 'MariaDB'],
+    name:        'Urban Estate — Real Estate Platform',
+    year:        '2024',
+    stack:       ['MERN Stack', 'Firebase Auth', 'Tailwind CSS'],
     description:
-      "A teaching management platform built on Frappe's LMS primitives, adding custom course scheduling, instructor–student session tracking, attendance records, and progress reports — deployed for a private training institution.",
-    github:      null,
+      'A full-stack property listing and discovery platform. Integrates Firebase Authentication, custom property filters, real-time database updates, and client inquiry features.',
+    github:      'https://github.com/Your-Arun',
     live:        null,
-    note:        'Client project — code is private',
+  },
+  {
+    name:        'Hotstar Clone — Streaming Platform',
+    year:        '2024',
+    stack:       ['React.js', 'TMDB API', 'Tailwind CSS'],
+    description:
+      'A responsive streaming video UI built with React. Integrates TMDB API for live movies/shows database, including full-text search, categories browsing, and custom styling.',
+    github:      'https://github.com/Your-Arun',
+    live:        null,
   },
 ];
 

@@ -2,43 +2,28 @@ import FadeIn from './FadeIn';
 
 const SKILL_GROUPS = [
   {
-    category: 'Backend',
-    items: [
-      'Python',
-      'Django',
-      'Django REST Framework',
-      'Frappe Framework',
-      'REST APIs',
-      'WebSockets',
-    ],
+    category: 'Languages',
+    items: ['JavaScript (ES6+)', 'HTML5', 'CSS3'],
   },
   {
-    category: 'Frontend & MERN',
-    items: [
-      'JavaScript (ES2020+)',
-      'React.js',
-      'Node.js',
-      'Express.js',
-      'MongoDB',
-      'HTML & CSS',
-    ],
+    category: 'Frontend',
+    items: ['React.js', 'React Native', 'Tailwind CSS', 'Bootstrap', 'Figma'],
+  },
+  {
+    category: 'Backend',
+    items: ['Node.js', 'Express.js', 'MongoDB'],
   },
   {
     category: 'Mobile',
-    items: [
-      'React Native',
-      'Expo',
-    ],
+    items: ['Expo', 'EAS Build'],
   },
   {
-    category: 'Tools & Infrastructure',
-    items: [
-      'Git & GitHub',
-      'IoT Protocols (MQTT)',
-      'Google Assistant API',
-      'Postman',
-      'Linux CLI',
-    ],
+    category: 'Tools',
+    items: ['Git', 'GitHub', 'Vercel', 'Render', 'Netlify', 'Nodemailer'],
+  },
+  {
+    category: 'CMS',
+    items: ['WordPress'],
   },
 ];
 

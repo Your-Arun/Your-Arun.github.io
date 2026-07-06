@@ -58,12 +58,12 @@ export default function Hero() {
             Arun Kumar
           </motion.h1>
 
-          {/* Sub-role line */}
+           {/* Sub-role line */}
           <motion.p
             variants={item}
             className="text-ink2 text-lg sm:text-xl font-medium tracking-wide"
           >
-            Software Engineer&nbsp;&nbsp;·&nbsp;&nbsp;IoT Enthusiast&nbsp;&nbsp;·&nbsp;&nbsp;Backend &amp; MERN Developer
+            MERN Stack Developer
           </motion.p>
 
           {/* Tagline */}
@@ -71,8 +71,7 @@ export default function Hero() {
             variants={item}
             className="text-muted text-base sm:text-lg leading-relaxed max-w-xl"
           >
-            I design and build clean, performant backend systems and full-stack
-            web products — from REST APIs to real-time IoT integrations.
+            MERN Stack Developer with 1.5+ years building production web and mobile applications end-to-end on the JavaScript stack — MongoDB, Express, React, Node.js, and React Native.
           </motion.p>
 
           {/* Hairline */}
@@ -84,11 +83,11 @@ export default function Hero() {
               View Projects
             </a>
             <a
-              href="#"
+              href="https://drive.google.com/file/d/1nEirBVmYUeORbZ4RSnOgaR1HrBRJfq7_/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Download resume (PDF)"
               className="btn-outline"
-              onClick={(e) => e.preventDefault()}
-              title="Resume download — coming soon"
             >
               <FileText className="w-4 h-4" aria-hidden="true" />
               Download Resume

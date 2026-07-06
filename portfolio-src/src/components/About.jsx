@@ -38,37 +38,31 @@ export default function About() {
 
             <div className="flex flex-col gap-4 text-ink2 text-[15px] leading-relaxed">
               <p>
-                I'm a Full-Stack Software Engineer with hands-on experience across backend
-                engineering, MERN stack development, and IoT-driven application architecture.
-                My work spans building REST APIs in <strong className="text-ink font-semibold">Django &amp; DRF</strong>, architecting
-                data-driven web apps with <strong className="text-ink font-semibold">React &amp; Node.js</strong>, and integrating
-                real-time device control systems using IoT protocols.
+                I'm a MERN Stack Developer with <strong className="text-ink font-semibold">1.5+ years of experience</strong> building
+                production web and mobile applications end-to-end on the JavaScript stack — MongoDB, Express, React, Node.js, and React Native.
+                I own the complete development lifecycle from concept to deployment, ensuring scalable code, intuitive UI layouts, and robust system configurations.
               </p>
               <p>
-                I've worked on enterprise-grade projects — an{' '}
-                <span className="text-ink font-medium">Asset Management System</span>,
-                a <span className="text-ink font-medium">Ticket Support Platform</span>,
-                a <span className="text-ink font-medium">Legal CRM</span>, and an{' '}
-                <span className="text-ink font-medium">Educational Teaching Platform</span> —
-                taking ownership from requirement gathering through to production deployment.
+                My experience includes designing and building <strong className="text-ink font-semibold">BranchFlow Pro</strong>, a 5-module logistics platform
+                digitizing dispatch operations for a multi-branch business (Sanghi Brothers), as well as a live <strong className="text-ink font-semibold">Feedback &amp; Complaint System</strong>
+                with a real-time Socket.io admin dashboard.
               </p>
               <p>
-                Outside of work, I believe that{' '}
+                Outside of coding, I believe that{" "}
                 <em className="italic text-ink">
-                  "The intersection of knowledge, skill, and desire is where real mastery lives."
-                </em>{' '}
-                I'm driven by curiosity about how systems talk to each other — whether that's
-                microservices, hardware sensors, or distributed teams.
+                  "Mastery lies at the intersection of knowledge, skill, and desire."
+                </em>{" "}
+                I'm passionate about building clean interfaces, optimizing query performance, and implementing reliable automation pipelines.
               </p>
             </div>
 
             {/* Quick facts */}
             <div className="grid grid-cols-2 gap-4 pt-2 border-t border-divider">
               {[
-                { label: 'Specialization', value: 'Backend & MERN' },
-                { label: 'Domain',         value: 'Web & IoT'      },
+                { label: 'Specialization', value: 'MERN & Mobile' },
+                { label: 'Experience',     value: '1.5+ Years' },
+                { label: 'Phone',          value: '+91-9588093562', href: 'tel:+919588093562' },
                 { label: 'Email',          value: 'arun.work82@gmail.com', href: 'mailto:arun.work82@gmail.com' },
-                { label: 'Availability',   value: 'Open to roles'  },
               ].map(({ label, value, href }) => (
                 <div key={label}>
                   <dt className="text-xs font-semibold uppercase tracking-widest text-muted mb-0.5">
