@@ -24,20 +24,47 @@ const DIRECT_LINKS = [
 ];
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [sent, setSent] = useState(false);
+  const [form,    setForm]    = useState({ name: '', email: '', message: '' });
+  const [sent,    setSent]    = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) =>
     setForm(f => ({ ...f, [e.target.name]: e.target.value }));
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Portfolio message from ${form.name}`);
-    const body    = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`
-    );
-    window.location.href = `mailto:arun.work82@gmail.com?subject=${subject}&body=${body}`;
-    setSent(true);
+    if (!form.name || !form.email || !form.message) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    setLoading(true);
+    fetch("https://formsubmit.co/ajax/arun.work82@gmail.com", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        name: form.name,
+        email: form.email,
+        message: form.message
+      })
+    })
+      .then(res => {
+        if (!res.ok) throw new Error();
+        return res.json();
+      })
+      .then(() => {
+        setSent(true);
+        setForm({ name: '', email: '', message: '' });
+      })
+      .catch(() => {
+        alert("Could not send message. Please send an email directly to arun.work82@gmail.com");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
@@ -94,7 +121,7 @@ export default function Contact() {
               <div className="flex flex-col items-center justify-center py-16 text-center gap-3">
                 <span className="text-3xl" aria-hidden="true">✓</span>
                 <p className="font-heading font-semibold text-ink text-lg">Message sent!</p>
-                <p className="text-sm text-muted">Your default email app should have opened. I'll reply soon.</p>
+                <p className="text-sm text-muted">Thank you. Your message has been sent directly to my inbox.</p>
                 <button
                   onClick={() => setSent(false)}
                   className="mt-2 text-sm link-accent"
@@ -119,13 +146,14 @@ export default function Contact() {
                     name="name"
                     type="text"
                     required
+                    disabled={loading}
                     autoComplete="name"
                     placeholder="Your full name"
                     value={form.name}
                     onChange={handleChange}
                     className="w-full border border-divider rounded px-4 py-3 text-sm text-ink bg-ivory
                                placeholder:text-muted/50 focus:outline-none focus:border-accent
-                               transition-colors duration-150"
+                               transition-colors duration-150 disabled:opacity-50"
                   />
                 </div>
 
@@ -139,13 +167,14 @@ export default function Contact() {
                     name="email"
                     type="email"
                     required
+                    disabled={loading}
                     autoComplete="email"
                     placeholder="you@example.com"
                     value={form.email}
                     onChange={handleChange}
                     className="w-full border border-divider rounded px-4 py-3 text-sm text-ink bg-ivory
                                placeholder:text-muted/50 focus:outline-none focus:border-accent
-                               transition-colors duration-150"
+                               transition-colors duration-150 disabled:opacity-50"
                   />
                 </div>
 
@@ -158,26 +187,24 @@ export default function Contact() {
                     id="cf-message"
                     name="message"
                     required
+                    disabled={loading}
                     rows={5}
                     placeholder="Tell me about your project or opportunity…"
                     value={form.message}
                     onChange={handleChange}
                     className="w-full border border-divider rounded px-4 py-3 text-sm text-ink bg-ivory
                                placeholder:text-muted/50 focus:outline-none focus:border-accent
-                               transition-colors duration-150 resize-none"
+                               transition-colors duration-150 resize-none disabled:opacity-50"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="btn-primary self-start"
+                  disabled={loading}
+                  className="btn-primary self-start disabled:opacity-50"
                 >
-                  Send Message
+                  {loading ? 'Sending...' : 'Send Message'}
                 </button>
-
-                <p className="text-xs text-muted">
-                  This opens your email client with the message pre-filled.
-                </p>
               </form>
             )}
           </FadeIn>
