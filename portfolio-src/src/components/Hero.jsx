@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, ArrowDown, FileText } from 'lucide-react';
 import FadeIn from './FadeIn';
+import Magnetic from './Magnetic';
+import TextReveal from './TextReveal';
 
 const SOCIALS = [
   {
@@ -50,13 +52,12 @@ export default function Hero() {
           </motion.p>
 
           {/* Main heading */}
-          <motion.h1
-            variants={item}
+          <h1
             className="font-heading font-bold text-ink leading-none tracking-tighter"
             style={{ fontSize: 'clamp(3rem, 10vw, 6.5rem)' }}
           >
-            Arun Kumar
-          </motion.h1>
+            <TextReveal text="Arun Kumar" delay={0.15} />
+          </h1>
 
            {/* Sub-role line */}
           <motion.p
@@ -79,34 +80,39 @@ export default function Hero() {
 
           {/* CTA Buttons */}
           <motion.div variants={item} className="flex flex-wrap gap-3">
-            <a href="#projects" className="btn-primary">
-              View Projects
-            </a>
-            <a
-              href="https://drive.google.com/file/d/1nEirBVmYUeORbZ4RSnOgaR1HrBRJfq7_/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Download resume (PDF)"
-              className="btn-outline"
-            >
-              <FileText className="w-4 h-4" aria-hidden="true" />
-              Download Resume
-            </a>
+            <Magnetic range={60}>
+              <a href="#projects" className="btn-primary">
+                View Projects
+              </a>
+            </Magnetic>
+            <Magnetic range={60}>
+              <a
+                href="https://drive.google.com/file/d/1nEirBVmYUeORbZ4RSnOgaR1HrBRJfq7_/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Download resume (PDF)"
+                className="btn-outline"
+              >
+                <FileText className="w-4 h-4" aria-hidden="true" />
+                Download Resume
+              </a>
+            </Magnetic>
           </motion.div>
 
           {/* Social links */}
           <motion.div variants={item} className="flex items-center gap-5 pt-2">
             {SOCIALS.map(({ label, href, icon: Icon }) => (
-              <a
-                key={label}
-                href={href}
-                target={href.startsWith('http') ? '_blank' : undefined}
-                rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                aria-label={label}
-                className="text-muted hover:text-accent transition-colors duration-150"
-              >
-                <Icon className="w-5 h-5" aria-hidden="true" />
-              </a>
+              <Magnetic key={label} range={40}>
+                <a
+                  href={href}
+                  target={href.startsWith('http') ? '_blank' : undefined}
+                  rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  aria-label={label}
+                  className="text-muted hover:text-accent transition-colors duration-150 p-1"
+                >
+                  <Icon className="w-5 h-5" aria-hidden="true" />
+                </a>
+              </Magnetic>
             ))}
           </motion.div>
         </motion.div>

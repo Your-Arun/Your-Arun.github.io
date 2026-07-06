@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
 import FadeIn from './FadeIn';
 
@@ -50,6 +52,8 @@ const PROJECTS = [
 ];
 
 export default function Projects() {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
   return (
     <section id="projects" aria-labelledby="projects-heading" className="bg-subtle/30">
       <div className="section-wrap">
@@ -63,9 +67,17 @@ export default function Projects() {
         <ol role="list" className="flex flex-col">
           {PROJECTS.map(({ name, year, stack, description, github, live, note }, i) => (
             <FadeIn key={name} delay={i * 0.08}>
-              <li className="group border-t border-divider py-10 last:border-b">
+              <motion.li
+                onMouseEnter={() => setHoveredIndex(i)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                animate={{
+                  opacity: hoveredIndex === null || hoveredIndex === i ? 1 : 0.35,
+                  y: hoveredIndex === i ? -4 : 0
+                }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="group border-t border-divider py-10 last:border-b cursor-default"
+              >
                 <div className="flex flex-col gap-4">
-
                   {/* Project header row */}
                   <div className="flex flex-wrap items-start justify-between gap-4">
                     <div className="flex flex-col gap-1">
@@ -125,7 +137,7 @@ export default function Projects() {
                     ))}
                   </div>
                 </div>
-              </li>
+              </motion.li>
             </FadeIn>
           ))}
         </ol>
