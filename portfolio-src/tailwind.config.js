@@ -7,18 +7,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: "#030712",
-        card: "#0b0f19",
-        muted: "#9ca3af",
-        "text-strong": "#f3f4f6",
-        border: "rgba(255, 255, 255, 0.08)",
-        accent: "#8b5cf6",
-        "accent-hover": "#a78bfa",
-        secondary: "#ec4899",
+        bg: "#05080c",
+        card: "#0a1017",
+        muted: "#64748b",
+        "text-strong": "#e2e8f0",
+        border: "rgba(16, 185, 129, 0.15)",
+        accent: "#10b981",
+        "accent-hover": "#34d399",
+        secondary: "#06b6d4",
         "cyan-accent": "#06b6d4",
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
+        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
       },
     },
   },

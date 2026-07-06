@@ -51,7 +51,7 @@ function ScrollReveal({ children, className = "" }) {
   // Maps scroll progress to opacity, blur, and scale
   const opacity = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [0.35, 1, 1, 0.35]);
   const blurValue = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [12, 0, 0, 12]);
-  const scale = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [0.94, 1, 1, 0.94]);
+  const scale = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [0.96, 1, 1, 0.96]);
   const filter = useTransform(blurValue, (v) => `blur(${v}px)`);
 
   return (
@@ -151,18 +151,18 @@ export default function App() {
     : skills.filter(skill => skill.category === activeTab);
 
   return (
-    <div className="relative min-h-screen font-sans antialiased text-muted selection:bg-accent selection:text-white bg-bg">
+    <div className="relative min-h-screen font-mono antialiased text-muted selection:bg-accent/30 selection:text-white bg-bg">
       {/* Scroll Progress Bar */}
       <motion.div 
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent via-secondary to-cyan-accent z-50 origin-left"
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent via-accent-hover to-secondary z-50 origin-left"
         style={{ scaleX }}
       />
 
       {/* Floating Animated Light Glow Effects */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden z-0">
-        <div className="absolute top-[10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-accent/15 blur-[120px] animate-blob" />
-        <div className="absolute bottom-[15%] right-[-5%] w-[500px] h-[500px] rounded-full bg-secondary/10 blur-[130px] animate-blob animation-delay-2000" />
-        <div className="absolute top-[50%] left-[30%] w-[550px] h-[550px] rounded-full bg-cyan-accent/10 blur-[140px] animate-blob animation-delay-4000" />
+        <div className="absolute top-[10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-accent/5 blur-[120px] animate-blob" />
+        <div className="absolute bottom-[15%] right-[-5%] w-[500px] h-[500px] rounded-full bg-secondary/5 blur-[130px] animate-blob animation-delay-2000" />
+        <div className="absolute top-[50%] left-[30%] w-[550px] h-[550px] rounded-full bg-accent/5 blur-[140px] animate-blob animation-delay-4000" />
       </div>
 
       {/* Navigation Header */}
@@ -174,11 +174,11 @@ export default function App() {
       >
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <a href="#home" className="flex items-center gap-3 group">
-            <span className="w-9 h-9 rounded-xl flex items-center justify-center font-extrabold text-white bg-gradient-to-br from-accent via-accent-hover to-secondary shadow-lg shadow-accent/20 transition-all duration-300 group-hover:scale-105">
+            <span className="w-9 h-9 rounded-xl flex items-center justify-center font-extrabold text-bg bg-gradient-to-br from-accent to-accent-hover shadow-lg shadow-accent/20 transition-all duration-300 group-hover:scale-105">
               AK
             </span>
             <span className="font-bold text-text-strong tracking-wide group-hover:text-accent transition-colors duration-300">
-              Arun Kumar
+              arun_kumar_
             </span>
           </a>
           <nav className="flex items-center gap-6">
@@ -188,7 +188,7 @@ export default function App() {
                 href={`#${section}`}
                 className="text-muted hover:text-accent text-sm font-semibold capitalize tracking-wide transition-colors duration-200"
               >
-                {section}
+                {section}()
               </a>
             ))}
           </nav>
@@ -205,8 +205,8 @@ export default function App() {
             className="flex flex-col gap-6"
           >
             <motion.div variants={fadeInUp} className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-accent/10 text-accent-hover border border-accent/25">
-                <Sparkles className="w-3.5 h-3.5" /> Welcome to my space
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-accent/10 text-accent border border-accent/25">
+                <Sparkles className="w-3.5 h-3.5" /> SYSTEM ACTIVE // PORTFOLIO
               </span>
             </motion.div>
             
@@ -214,21 +214,21 @@ export default function App() {
               variants={fadeInUp}
               className="text-5xl sm:text-7xl font-extrabold text-text-strong tracking-tight leading-none"
             >
-              Hi, I am <span className="bg-gradient-to-r from-accent via-secondary to-cyan-accent bg-clip-text text-transparent">Arun Kumar</span>
+              &gt; <span className="bg-gradient-to-r from-accent via-accent-hover to-secondary bg-clip-text text-transparent">[Arun Kumar]</span>
             </motion.h1>
             
             <motion.h2 
               variants={fadeInUp}
-              className="text-xl sm:text-3xl font-bold text-cyan-accent tracking-wide"
+              className="text-xl sm:text-3xl font-bold text-secondary tracking-wide uppercase"
             >
-              MERN Stack &amp; React Native Developer
+              // MERN &amp; React Native Developer
             </motion.h2>
             
             <motion.p 
               variants={fadeInUp}
               className="text-lg text-muted max-w-2xl leading-relaxed"
             >
-              I build scalable web and mobile experiences with clean architecture, modern JavaScript, and user-focused design.
+              I compile high-quality web applications and React Native mobile experiences with modular architectures, strict type safety, and fast execution pipelines.
             </motion.p>
             
             <motion.div 
@@ -236,34 +236,34 @@ export default function App() {
               className="flex flex-wrap gap-4 mt-4"
             >
               <motion.a 
-                whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(139, 92, 246, 0.45)" }}
+                whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(16, 185, 129, 0.45)" }}
                 whileTap={{ scale: 0.95 }}
                 href="https://github.com/Your-Arun" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-gradient-to-r from-accent to-[#6d28d9] text-white shadow-lg transition-all"
+                className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-gradient-to-r from-accent to-[#047857] text-bg shadow-lg transition-all"
               >
-                <Github className="w-5 h-5" /> GitHub
+                <Github className="w-5 h-5" /> git_profile()
               </motion.a>
               
               <motion.a 
-                whileHover={{ scale: 1.05, borderColor: "rgba(236, 72, 153, 0.5)", backgroundColor: "rgba(236, 72, 153, 0.05)" }}
+                whileHover={{ scale: 1.05, borderColor: "rgba(6, 182, 212, 0.5)", backgroundColor: "rgba(6, 182, 212, 0.05)" }}
                 whileTap={{ scale: 0.95 }}
                 href="https://www.linkedin.com/in/urarun/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold border border-border bg-transparent text-text-strong transition-all duration-300"
               >
-                <Linkedin className="w-5 h-5" /> LinkedIn
+                <Linkedin className="w-5 h-5" /> connect_linkedin()
               </motion.a>
 
               <motion.a 
-                whileHover={{ scale: 1.05, borderColor: "rgba(6, 182, 212, 0.5)", backgroundColor: "rgba(6, 182, 212, 0.05)" }}
+                whileHover={{ scale: 1.05, borderColor: "rgba(16, 185, 129, 0.5)", backgroundColor: "rgba(16, 185, 129, 0.05)" }}
                 whileTap={{ scale: 0.95 }}
                 href="mailto:arun.work82@gmail.com"
                 className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold border border-border bg-transparent text-text-strong transition-all duration-300"
               >
-                <Mail className="w-5 h-5" /> Email
+                <Mail className="w-5 h-5" /> send_mail()
               </motion.a>
             </motion.div>
           </motion.div>
@@ -271,7 +271,7 @@ export default function App() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-24 px-6 relative z-10 border-t border-border/40">
+      <section id="about" className="py-24 px-6 relative z-10 border-t border-border">
         <div className="max-w-4xl mx-auto w-full">
           <ScrollReveal>
             <motion.div 
@@ -281,27 +281,28 @@ export default function App() {
               variants={staggerContainer}
               className="flex flex-col gap-6"
             >
-              <motion.h2 variants={fadeInUp} className="text-3xl font-extrabold text-text-strong tracking-tight flex items-center gap-2">
-                <span className="w-2.5 h-6 bg-gradient-to-b from-accent to-secondary rounded-full inline-block" /> About Me
+              <motion.h2 variants={fadeInUp} className="text-2xl font-extrabold text-text-strong tracking-tight flex items-center gap-2 uppercase">
+                <span className="w-2.5 h-6 bg-gradient-to-b from-accent to-secondary rounded-full inline-block animate-pulse" /> [about_me]
               </motion.h2>
               
-              <motion.p variants={fadeInUp} className="text-lg text-muted leading-relaxed">
-                Developer with 1+ years of experience building robust full-stack applications and React Native products. 
-                I focus on maintainable code, API design, and performant user interfaces.
+              <motion.p variants={fadeInUp} className="text-base text-muted leading-relaxed">
+                $ init --user "Arun Kumar" --exp "1+ years"
+                <br />
+                $ status: Full-stack MERN &amp; React Native developer based in Rajasthan. Passionate about scripting clean API models, performant interfaces, and modular backend setups.
               </motion.p>
 
               <motion.div 
                 variants={fadeInUp}
-                className="glass-card p-8 rounded-2xl flex flex-col gap-6"
+                className="glass-card p-6 rounded-2xl flex flex-col gap-6"
               >
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-xl bg-accent/10 text-accent-hover">
+                  <div className="p-3 rounded-xl bg-accent/10 text-accent">
                     <Briefcase className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-text-strong mb-1">Full-Stack Capability</h3>
-                    <p className="text-muted leading-relaxed">
-                      I enjoy turning ideas into production-ready digital products using the MERN stack and mobile-first engineering practices. I work across frontend and backend, from component architecture to real-time systems.
+                    <h3 className="text-base font-bold text-text-strong mb-1 uppercase">&gt;_ core_capability</h3>
+                    <p className="text-sm text-muted leading-relaxed">
+                      Transforming logical specs into production-ready software architecture. Proficient in handling concurrent real-time nodes (WebSockets), building reusable custom hooks, and optimising layout draw times.
                     </p>
                   </div>
                 </div>
@@ -312,16 +313,16 @@ export default function App() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-24 px-6 relative z-10 border-t border-border/40">
+      <section id="projects" className="py-24 px-6 relative z-10 border-t border-border">
         <div className="max-w-6xl mx-auto w-full">
           <div className="flex flex-col gap-8">
             <div className="flex justify-between items-end flex-wrap gap-4">
               <div>
-                <h2 className="text-3xl font-extrabold text-text-strong tracking-tight flex items-center gap-2">
-                  <span className="w-2.5 h-6 bg-gradient-to-b from-secondary to-cyan-accent rounded-full inline-block" /> Projects
+                <h2 className="text-2xl font-extrabold text-text-strong tracking-tight flex items-center gap-2 uppercase">
+                  <span className="w-2.5 h-6 bg-gradient-to-b from-secondary to-accent rounded-full inline-block animate-pulse" /> [projects_list]
                 </h2>
-                <p className="text-muted mt-2">
-                  Selected repositories fetched live from GitHub, sorted by latest activity.
+                <p className="text-sm text-muted mt-2">
+                  // Fetching active repositories directly from GitHub API.
                 </p>
               </div>
             </div>
@@ -340,8 +341,8 @@ export default function App() {
                 ))}
               </div>
             ) : error ? (
-              <div className="p-6 rounded-xl border border-red-500/20 bg-red-500/5 text-red-400">
-                {error}
+              <div className="p-6 rounded-xl border border-red-500/20 bg-red-500/5 text-red-400 font-mono text-sm">
+                [ERROR]: {error}
               </div>
             ) : (
               <motion.div 
@@ -362,13 +363,13 @@ export default function App() {
                       >
                         <div>
                           <div className="flex items-start justify-between gap-2">
-                            <h3 className="text-lg font-bold text-text-strong line-clamp-1 hover:text-accent transition-colors duration-200">
+                            <h3 className="text-sm font-bold text-text-strong line-clamp-1 hover:text-accent transition-colors duration-200">
                               {toTitleCaseFromSlug(repo.name)}
                             </h3>
-                            <Terminal className="w-4 h-4 text-muted flex-shrink-0" />
+                            <Terminal className="w-4 h-4 text-accent/60 flex-shrink-0" />
                           </div>
-                          <p className="text-sm text-muted mt-2 line-clamp-3 leading-relaxed">
-                            {repo.description || "View Project repository for details."}
+                          <p className="text-xs text-muted mt-2 line-clamp-3 leading-relaxed">
+                            {repo.description || "No description provided. Inspect source files."}
                           </p>
                         </div>
 
@@ -376,13 +377,13 @@ export default function App() {
                           <div className="flex justify-between items-center mb-4">
                             <span className="flex items-center gap-1.5 text-xs text-muted">
                               <span 
-                                className="w-2.5 h-2.5 rounded-full inline-block" 
+                                className="w-2 h-2 rounded-full inline-block" 
                                 style={{ backgroundColor: getLanguageColor(repo.language) }}
                               />
                               {repo.language || "Unknown"}
                             </span>
                             <span className="flex items-center gap-1 text-xs text-muted">
-                              <Star className="w-3.5 h-3.5 text-yellow-500 fill-yellow-500" /> {repo.stargazers_count}
+                              <Star className="w-3.5 h-3.5 text-accent" /> {repo.stargazers_count}
                             </span>
                           </div>
                           <div className="flex gap-3">
@@ -390,16 +391,16 @@ export default function App() {
                               href={repo.html_url} 
                               target="_blank" 
                               rel="noopener noreferrer"
-                              className="flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg text-xs font-bold bg-gradient-to-r from-accent to-[#6d28d9] text-white hover:brightness-110 shadow-md shadow-accent/10 transition-all"
+                              className="flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg text-xs font-bold bg-gradient-to-r from-accent to-[#047857] text-bg hover:brightness-110 shadow-md shadow-accent/10 transition-all"
                             >
-                              <Github className="w-3.5 h-3.5" /> Repository
+                              <Github className="w-3.5 h-3.5" /> repository()
                             </a>
                             {repo.homepage && (
                               <a 
                                 href={repo.homepage} 
                                 target="_blank" 
                                 rel="noopener noreferrer"
-                                className="flex items-center justify-center py-2 px-3 rounded-lg text-xs font-bold border border-border text-text-strong hover:bg-card/85 hover:border-cyan-accent/40 transition-all"
+                                className="flex items-center justify-center py-2 px-3 rounded-lg text-xs font-bold border border-border text-text-strong hover:bg-card/85 hover:border-accent/40 transition-all"
                                 aria-label="Live Demo"
                               >
                                 <ExternalLink className="w-3.5 h-3.5" />
@@ -418,22 +419,22 @@ export default function App() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-24 px-6 relative z-10 border-t border-border/40">
+      <section id="skills" className="py-24 px-6 relative z-10 border-t border-border">
         <div className="max-w-4xl mx-auto w-full">
           <div className="flex flex-col gap-8">
             <div>
-              <h2 className="text-3xl font-extrabold text-text-strong tracking-tight flex items-center gap-2">
-                <span className="w-2.5 h-6 bg-gradient-to-b from-cyan-accent to-accent rounded-full inline-block" /> Tech Stack
+              <h2 className="text-2xl font-extrabold text-text-strong tracking-tight flex items-center gap-2 uppercase">
+                <span className="w-2.5 h-6 bg-gradient-to-b from-accent to-secondary rounded-full inline-block animate-pulse" /> [tech_stack]
               </h2>
-              <p className="text-muted mt-2">
-                Core technologies I use across web and mobile development.
+              <p className="text-sm text-muted mt-2">
+                // System tools, utilities and active runtimes.
               </p>
             </div>
 
             {/* Categorization Tabs */}
             <div className="flex gap-2 flex-wrap border-b border-border pb-4">
               {[
-                { id: "all", label: "All Skills" },
+                { id: "all", label: "All" },
                 { id: "frontend", label: "Frontend" },
                 { id: "backend", label: "Backend" },
                 { id: "mobile", label: "Mobile" },
@@ -442,9 +443,9 @@ export default function App() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300 relative border ${
+                  className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-300 relative border ${
                     activeTab === tab.id 
-                      ? "text-white bg-gradient-to-r from-accent to-secondary border-transparent shadow-lg shadow-accent/20" 
+                      ? "text-bg bg-gradient-to-r from-accent to-secondary border-transparent shadow-lg shadow-accent/20" 
                       : "text-muted hover:text-text-strong bg-transparent border-white/5 hover:border-white/10"
                   }`}
                 >
@@ -467,10 +468,10 @@ export default function App() {
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.2 }}
                     key={skill.name}
-                    className="p-4 rounded-xl border border-white/5 bg-card/40 backdrop-blur-md flex items-center gap-3 hover:border-accent/40 hover:bg-card/80 transition-all duration-300 group shadow-md hover:shadow-accent/5 hover:-translate-y-0.5"
+                    className="p-4 rounded-xl border border-white/5 bg-card/40 backdrop-blur-md flex items-center gap-3 hover:border-accent/40 hover:bg-card/85 transition-all duration-300 group shadow-md hover:-translate-y-0.5"
                   >
-                    <span className="w-2 h-2 rounded-full bg-gradient-to-br from-accent to-secondary group-hover:scale-125 transition-transform duration-300" />
-                    <span className="font-semibold text-text-strong text-sm tracking-wide">{skill.name}</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent group-hover:scale-125 transition-transform duration-300" />
+                    <span className="font-semibold text-text-strong text-xs tracking-wide">{skill.name}</span>
                   </motion.div>
                 ))}
               </AnimatePresence>
@@ -480,7 +481,7 @@ export default function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 px-6 relative z-10 border-t border-border/40">
+      <section id="contact" className="py-24 px-6 relative z-10 border-t border-border">
         <div className="max-w-4xl mx-auto w-full">
           <ScrollReveal>
             <motion.div 
@@ -491,37 +492,37 @@ export default function App() {
               className="flex flex-col gap-8"
             >
               <div>
-                <h2 className="text-3xl font-extrabold text-text-strong tracking-tight flex items-center gap-2">
-                  <span className="w-2.5 h-6 bg-gradient-to-b from-accent to-secondary rounded-full inline-block" /> Contact Me
+                <h2 className="text-2xl font-extrabold text-text-strong tracking-tight flex items-center gap-2 uppercase">
+                  <span className="w-2.5 h-6 bg-gradient-to-b from-secondary to-accent rounded-full inline-block animate-pulse" /> [contact_me]
                 </h2>
-                <p className="text-muted mt-2">
-                  Open to full-time roles, freelance projects, and collaborative product work.
+                <p className="text-sm text-muted mt-2">
+                  // Establish a connection socket.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
-                  { label: "Email", value: "arun.work82@gmail.com", href: "mailto:arun.work82@gmail.com", icon: Mail, glow: "hover:border-accent/30 hover:shadow-accent/5" },
-                  { label: "LinkedIn", value: "linkedin.com/in/urarun", href: "https://www.linkedin.com/in/urarun/", icon: Linkedin, glow: "hover:border-secondary/30 hover:shadow-secondary/5" },
-                  { label: "GitHub", value: "github.com/Your-Arun", href: "https://github.com/Your-Arun", icon: Github, glow: "hover:border-accent/30 hover:shadow-accent/5" },
-                  { label: "Location", value: "Jodhpur, Rajasthan", href: null, icon: MapPin, glow: "hover:border-cyan-accent/30 hover:shadow-cyan-accent/5" }
+                  { label: "Email", value: "arun.work82@gmail.com", href: "mailto:arun.work82@gmail.com", icon: Mail },
+                  { label: "LinkedIn", value: "linkedin.com/in/urarun", href: "https://www.linkedin.com/in/urarun/", icon: Linkedin },
+                  { label: "GitHub", value: "github.com/Your-Arun", href: "https://github.com/Your-Arun", icon: Github },
+                  { label: "Location", value: "Jodhpur, Rajasthan", href: null, icon: MapPin }
                 ].map((item, idx) => (
                   <motion.article 
                     variants={fadeInUp}
                     key={idx}
-                    className={`glass-card p-6 rounded-2xl flex items-start gap-4 transition-all duration-300 ${item.glow}`}
+                    className="glass-card p-6 rounded-2xl flex items-start gap-4 hover:border-accent/40 hover:shadow-accent/5 duration-300"
                   >
-                    <div className="p-3 rounded-xl bg-accent/10 text-accent-hover flex-shrink-0">
+                    <div className="p-3 rounded-xl bg-accent/10 text-accent flex-shrink-0">
                       <item.icon className="w-5 h-5" />
                     </div>
                     <div className="min-w-0">
-                      <span className="text-xs text-muted block mb-1">{item.label}</span>
+                      <span className="text-xs text-muted block mb-1 font-semibold">{item.label}</span>
                       {item.href ? (
-                        <a href={item.href} target="_blank" rel="noopener noreferrer" className="font-bold text-text-strong hover:text-accent transition-colors break-words">
+                        <a href={item.href} target="_blank" rel="noopener noreferrer" className="font-bold text-text-strong hover:text-accent transition-colors break-words text-sm">
                           {item.value}
                         </a>
                       ) : (
-                        <span className="font-bold text-text-strong break-words">{item.value}</span>
+                        <span className="font-bold text-text-strong break-words text-sm">{item.value}</span>
                       )}
                     </div>
                   </motion.article>
@@ -533,8 +534,8 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-6 border-t border-border/40 relative z-10 text-center text-sm text-muted">
-        <p>© {new Date().getFullYear()} Arun Kumar. Rebuilt with React, Tailwind CSS, &amp; Framer Motion.</p>
+      <footer className="py-8 px-6 border-t border-border relative z-10 text-center text-xs text-muted">
+        <p>[SYSTEM_END_COMMUNICATION] // © {new Date().getFullYear()} Arun Kumar. Built with React, Tailwind &amp; Framer Motion.</p>
       </footer>
 
       {/* Back to top Button */}
@@ -545,7 +546,7 @@ export default function App() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="fixed bottom-6 right-6 p-3 rounded-xl bg-gradient-to-r from-accent to-[#6d28d9] text-white shadow-lg shadow-accent/20 hover:brightness-110 z-40 transition-all duration-300"
+            className="fixed bottom-6 right-6 p-3 rounded-xl bg-gradient-to-r from-accent to-[#047857] text-bg shadow-lg shadow-accent/20 hover:brightness-110 z-40 transition-all duration-300"
             aria-label="Scroll to top"
           >
             <ArrowUp className="w-5 h-5" />
@@ -555,4 +556,5 @@ export default function App() {
     </div>
   );
 }
+
 
