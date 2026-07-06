@@ -7,13 +7,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: "#0d1117",
-        card: "#161b22",
-        muted: "#8b949e",
-        "text-strong": "#f0f6fc",
-        border: "#30363d",
-        accent: "#58a6ff",
-        "accent-hover": "#79c0ff",
+        bg: "#030712",
+        card: "#0b0f19",
+        muted: "#9ca3af",
+        "text-strong": "#f3f4f6",
+        border: "rgba(255, 255, 255, 0.08)",
+        accent: "#8b5cf6",
+        "accent-hover": "#a78bfa",
+        secondary: "#ec4899",
+        "cyan-accent": "#06b6d4",
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
